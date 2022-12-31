@@ -1,0 +1,2 @@
+doorkeeper:
+  default_scope: "user"

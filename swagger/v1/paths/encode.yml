@@ -1,0 +1,13 @@
+get:
+  tags:
+    - Url
+  summary: Url encode
+  security:
+    - BearerAuth: []
+  responses:
+    200:
+      description: Url encode
+      content:
+        application/json:
+          schema:
+            type: object

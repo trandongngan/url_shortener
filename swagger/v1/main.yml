@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  title: Url Shortener
+  version: "1.0"
+servers:
+  - url: http://localhost:3000/api/v1
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+paths:
+  /encode:
+    $ref: "./swagger/v1/paths/encode.yml"
+  /decode:
+    $ref: "./swagger/v1/paths/decode.yml"

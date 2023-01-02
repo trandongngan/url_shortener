@@ -1,9 +1,16 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :short_links
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root to: proc { [404, {}, ["Not found."]] }
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      unless %w[production].include?(Rails.env)
+        resources :api_docs, only: [:index]
+      end
+
+      post 'encode'  => 'short_links#encode'
+      post 'decode' => 'short_links#decode'
+    end
+  end
 end

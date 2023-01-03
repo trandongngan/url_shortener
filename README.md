@@ -101,6 +101,7 @@ $ bundle exec rspec
       -> If only scale up that's enough then we need focus about optimize, increase hardware performance. For example: That's we need to optimize coding, queries. Or relevent harware that we inscrease CPU number cores (4 -> 8 -> 24 ..), RAM (8 -> 16 -> 32). we also use caches to improve it
 
       -> If the stage need to scale out to adapt big data then we can think inscrease number servers, load balancer, mysql replication, mysql partition
+
       -> Nosql's also a solution worth thinking about
     + **Sercurity:**
       -> Currently we already care about issue related with redirecting. We delete `HTTP_X_FORWARDED_HOST` in request (ref: https://github.com/trandongngan/url_shortener/blob/main/lib/rack/strip_x_forwarded_host.rb ). Of course it's no enough. We need to care about it following this document https://github.com/OWASP/CheatSheetSeries. 

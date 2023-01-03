@@ -59,8 +59,8 @@ $ bundle exec rspec
   - Open coverage page [#{Rails.root}/coverage/index.html](#{Rails.root}/coverage/index.html)
 
 ## Swagger API Document (for development)
-  - Get json result from [http://domain.xxx/api/v1/api_docs](your domain) OR [https://url-shortener-app.herokuapp.com/api/v1/api_docs](heroku demo app)
-  - Paste it into this [link](https://editor.swagger.io/)
+  - Get json result from [your domain](http://domain.xxx/api/v1/api_docs) OR [heroku demo app](https://url-shortener-app.herokuapp.com/api/v1/api_docs)
+  - Paste it into this [swagger io](https://editor.swagger.io/)
 
 ## How to use api
   #### How to get api key
@@ -94,9 +94,10 @@ $ bundle exec rspec
     + **Structure:** -> It's okie, The project's cloned by rails framework. It's very popular & accepted by community. we also extended more thing without difficulty (add new coding folders, lib, config, gem ...)
     + **Coding:** It's clearly now (hanlde errors, manage api versions, extra lib (base62 ...), command pattern, about fat models & controllers (it's small now. in future if it's complex we can put the logic to command, service... we can apply solid coding principle that it's okie too).
     + **Testing:** we have rspec to handle bugs. it's make sure that we have enough confident to deploy application (Of course that we need make sure coverage all issues)
-    + **Features:** We have implemented authentication. of course we need improve some thing to complete this feature (add login feature, manage appliction if we want to provide to third party ...). we can expend more features. In once of that is the tracking user click....
+    + **Features:** We have implemented authentication. of course we need improve some thing to complete this feature (add login feature, manage appliction if we want to provide to third party ...). we can expend more features. One of all that is the tracking user click....
     + **Documents:** Currently we have apply open api 3.0 (swagger). It's very simple to description (Or brief) how to use the api endpoint. It's very detail about input & output in all cases. So It's no only for who is used it, also usefull for developer. we just define new file yml in swagger folders when we wanted add new document
     + **Performance:** We need to make clearly that we need to scale up OR scale out in each stage. How to serve many requests (millons, hundreds millons, even billons)
+  
       -> If only scale up that's enough then we need focus about optimize, increase hardware performance. For example: That's we need to optimize coding, queries. Or relevent harware that we inscrease CPU number cores (4 -> 8 -> 24 ..), RAM (8 -> 16 -> 32). we also use caches to improve it
 
       -> If the stage need to scale out to adapt big data then we can think inscrease number servers, load balancer, mysql replication, mysql partition

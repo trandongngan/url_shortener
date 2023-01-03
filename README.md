@@ -21,7 +21,7 @@
   ```
 
   - Setup user first
-  ** The user_first task returns the token to use api (you can run multi times for getting token. It's only return user token first) **
+  **The user_first task returns the token to use api (you can run multi times for getting token. It's only return user token first)**
 
   ```command
   $ rake once_time:user_first
@@ -39,7 +39,7 @@
   ```console
   Oauth::GenerateTokenCommand.call(user_id: User.first.id)
   ```
-  ** Make sure that the user first is exist **
+  **Make sure that the user first is exist**
 
 ## Check rubocop
 ```command
@@ -85,25 +85,25 @@ $ bundle exec rspec
         "short_url": "boykuA"
     }'
   ```
-  ** short_url also support full path `https://url-shortener-app.herokuapp.com/boykuA` **
+  **short_url also support full path `https://url-shortener-app.herokuapp.com/boykuA`**
 
 
 ## Discussion
   #### For scaling up
   - In future, If we want to scale up, what's issue that we needed focuss about:
-    + Structure: -> It's okie, The project's cloned by rails framework. It's very popular & accepted by community. we also extended more thing without difficulty (add new coding folders, lib, config, gem ...)
-    + Coding: It's clearly now (hanlde errors, manage api versions, extra lib (base62 ...), command pattern, about fat models & controllers (it's small now. in future if it's complex we can put the logic to command, service... we can apply solid coding principle that it's okie too).
-    + Testing: we have rspec to handle bugs. it's make sure that we have enough confident to deploy application (Of course that we need make sure coverage all issues)
-    + Features: We have implemented authentication. of course we need improve some thing to complete this feature (add login feature, manage appliction if we want to provide to third party ...). we can expend more features. In once of that is the tracking user click....
-    + Documents: Currently we have apply open api 3.0 (swagger). It's very simple to description (Or brief) how to use the api endpoint. It's very detail about input & output in all cases. So It's no only for who is used it, also usefull for developer. we just define new file yml in swagger folders when we wanted add new document
-    + Performance: We need to make clearly that we need to scale up OR scale out in each stage. How to serve many requests (millons, hundreds millons, even billons)
+    + **Structure:** -> It's okie, The project's cloned by rails framework. It's very popular & accepted by community. we also extended more thing without difficulty (add new coding folders, lib, config, gem ...)
+    + **Coding:** It's clearly now (hanlde errors, manage api versions, extra lib (base62 ...), command pattern, about fat models & controllers (it's small now. in future if it's complex we can put the logic to command, service... we can apply solid coding principle that it's okie too).
+    + **Testing:** we have rspec to handle bugs. it's make sure that we have enough confident to deploy application (Of course that we need make sure coverage all issues)
+    + **Features:** We have implemented authentication. of course we need improve some thing to complete this feature (add login feature, manage appliction if we want to provide to third party ...). we can expend more features. In once of that is the tracking user click....
+    + **Documents:** Currently we have apply open api 3.0 (swagger). It's very simple to description (Or brief) how to use the api endpoint. It's very detail about input & output in all cases. So It's no only for who is used it, also usefull for developer. we just define new file yml in swagger folders when we wanted add new document
+    + **Performance:** We need to make clearly that we need to scale up OR scale out in each stage. How to serve many requests (millons, hundreds millons, even billons)
       -> If only scale up that's enough then we need focus about optimize, increase hardware performance. For example: That's we need to optimize coding, queries. Or relevent harware that we inscrease CPU number cores (4 -> 8 -> 24 ..), RAM (8 -> 16 -> 32). we also use caches to improve it
       -> If the stage need to scale out to adapt big data then we can think inscrease number servers, load balancer, mysql replication, mysql partition
       -> Nosql's also a solution worth thinking about
-    + Sercurity:
+    + **Sercurity:**
       -> Currently we already care about issue related with redirecting. We delete `HTTP_X_FORWARDED_HOST` in request (ref: https://github.com/trandongngan/url_shortener/blob/main/lib/rack/strip_x_forwarded_host.rb ). Of course it's no enough. We need to care about it following this document https://github.com/OWASP/CheatSheetSeries. 
       -> DDOS attack: Currently We have authenticate the user and we have limit 100 times to short link for each key (user) in once day. It may not good a solution. But we can discuss to improve it later 
-    + Infrastructure: -> we need to implement ci/cd, deployment, docker ..
+    + **Infrastructure:** -> we need to implement ci/cd, deployment, docker ..
 
     
 

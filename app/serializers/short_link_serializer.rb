@@ -2,7 +2,11 @@
 
 class ShortLinkSerializer < ActiveModel::Serializer
   def attributes(*_agrs)
-    return {short_url: object.short_url} unless decode?
+    unless decode?
+      base_url = ENV["BASE_URL"] || "localhost:3000"
+
+      return {short_url: [base_url, object.short_url].join("/")}
+    end
 
     {original_url: object.original_url}
   end
@@ -10,6 +14,6 @@ class ShortLinkSerializer < ActiveModel::Serializer
   private
 
   def decode?
-    @instance_options[:type].to_sym == :decode
+    @instance_options[:type]&.to_sym == :decode
   end
 end

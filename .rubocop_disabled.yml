@@ -6,3 +6,6 @@ Style/ClassAndModuleChildren:
 Style/Documentation:
   Description: "Document classes and non-namespace modules."
   Enabled: false
+RSpec/MultipleExpectations:
+  Description: "Only once expectaion in the block"
+  Enabled: false

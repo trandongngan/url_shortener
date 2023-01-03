@@ -1,9 +1,21 @@
-get:
+post:
   tags:
     - Url
   summary: Url encode
   security:
     - BearerAuth: []
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          required:
+            - url
+          properties:
+            url:
+              type: string
+
   responses:
     200:
       description: Url encode
@@ -11,3 +23,19 @@ get:
         application/json:
           schema:
             type: object
+            properties:
+              short_url:
+                example: "http://shortlink.com/abcedf"
+                type: string
+    400:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - erorr_message
+            properties:
+              erorr_message:
+                example: "Bad request"
+                type: string

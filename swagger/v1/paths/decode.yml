@@ -1,9 +1,20 @@
-get:
+post:
   tags:
     - Url
   summary: Url decode
   security:
     - BearerAuth: []
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          required:
+            - short_url
+          properties:
+            url:
+              type: string
   responses:
     200:
       description: Url decode
@@ -11,3 +22,19 @@ get:
         application/json:
           schema:
             type: object
+            properties:
+              original_url:
+                example: "https://codesubmit.io/library/react "
+                type: string
+    404:
+      description: Resouce not found
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - erorr_message
+            properties:
+              erorr_message:
+                example: "Resouce not found"
+                type: string

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root to: proc { [404, {}, ["Not found."]] }
+  root to: proc { [200, {}, ["Welcome to The Url Shortener system! Sorry, we just support api now :)"]] }
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do

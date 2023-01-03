@@ -67,7 +67,7 @@ $ bundle exec rspec
     - you can generate api key (access token) in your system (`Just use token on your system`)
     - In this time, if you use the test server on heroku. you can use this token `eLiMawjUDpSWoYXtlcYMzeoi6Zu0WUCnDb6ZQaBTiZc`
   #### How to call ap
-  - you can use postmain or culr or any tool support this. Call api by curl under
+  - you can use postmain or culr or [swagger io](https://editor.swagger.io/) or any tool support this. Call api by curl under
   - encode api
   ```command
       curl --location --request POST 'https://url-shortener-app.herokuapp.com/api/v1/encode' \
@@ -82,9 +82,10 @@ $ bundle exec rspec
     --header 'Authorization: Bearer eLiMawjUDpSWoYXtlcYMzeoi6Zu0WUCnDb6ZQaBTiZc' \
     --header 'Content-Type: application/json' \
     --data-raw '{
-        "short_url": "goykuA"
+        "short_url": "boykuA"
     }'
   ```
+  ** short_url also support full path `https://url-shortener-app.herokuapp.com/boykuA` **
 
 
 ## Discussion

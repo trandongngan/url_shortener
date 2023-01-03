@@ -4,6 +4,7 @@ info:
   version: "1.0"
 servers:
   - url: http://localhost:3000/api/v1
+  - url: https://url-shortener-app.herokuapp.com/api/v1
 components:
   securitySchemes:
     BearerAuth:

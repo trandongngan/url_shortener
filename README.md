@@ -21,7 +21,7 @@
   ```
 
   - Setup user first
-  *** The user_first task returns the token to use api (you can run multi times for getting token. It's only return user token first)
+  ** The user_first task returns the token to use api (you can run multi times for getting token. It's only return user token first) **
 
   ```command
   $ rake once_time:user_first
@@ -39,7 +39,7 @@
   ```console
   Oauth::GenerateTokenCommand.call(user_id: User.first.id)
   ```
-  *** Make sure that the user first is exist
+  ** Make sure that the user first is exist **
 
 ## Check rubocop
 ```command
@@ -59,32 +59,33 @@ $ bundle exec rspec
   - Open coverage page [#{Rails.root}/coverage/index.html](#{Rails.root}/coverage/index.html)
 
 ## Swagger API Document (for development)
-  - Get json result from [http://domain.xxx/api/v1/api_docs](your domain OR https://url-shortener-app.herokuapp.com/api/v1/api_docs)
+  - Get json result from [http://domain.xxx/api/v1/api_docs](your domain) OR [https://url-shortener-app.herokuapp.com/api/v1/api_docs](heroku demo app)
   - Paste it into this [link](https://editor.swagger.io/)
 
 ## How to use api
   #### How to get api key
     - you can generate api key (access token) in your system (`Just use token on your system`)
-    - In this time, if you use the test server on heroku. you can use this token `xxxx`
+    - In this time, if you use the test server on heroku. you can use this token `eLiMawjUDpSWoYXtlcYMzeoi6Zu0WUCnDb6ZQaBTiZc`
   #### How to call ap
   - you can use postmain or culr or any tool support this. Call api by curl under
   - encode api
   ```command
-      curl --location --request POST 'http://localhost:3000/api/v1/encode' \
+      curl --location --request POST 'https://url-shortener-app.herokuapp.com/api/v1/encode' \
     --header 'Content-Type: application/json' \
-    --header 'Authorization: Bearer 3KzPmoB4gYikz0kNCxMOYMMpb9z1wPAUm4lyPlVXsTw' \
-    --data-raw '{"url": "https://abc.com/testchoi/testne"}'
+    --header 'Authorization: Bearer eLiMawjUDpSWoYXtlcYMzeoi6Zu0WUCnDb6ZQaBTiZc' \
+    --data-raw '{"url": "https://codesubmit.io/library/react"}'
   ```
 
   - decode api
   ```command
-      curl --location --request POST 'http://localhost:3000/api/v1/decode' \
-    --header 'Authorization: Bearer VeI4sp1tpGnE-vBLEzZKwZH7juynK_9ySKn7DA3e_vY' \
+      curl --location --request POST 'https://url-shortener-app.herokuapp.com/api/v1/decode' \
+    --header 'Authorization: Bearer eLiMawjUDpSWoYXtlcYMzeoi6Zu0WUCnDb6ZQaBTiZc' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "short_url": "goykuA"
     }'
   ```
+
 
 ## Discussion
   #### For scaling up
